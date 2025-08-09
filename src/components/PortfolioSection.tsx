@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { InteractiveCard3D } from "./InteractiveCard3D";
+import { ParallaxSection } from "./ParallaxSection";
 
 const projects = [
   {
@@ -45,35 +47,36 @@ export const PortfolioSection = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 perspective-2000">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <ParallaxSection speed={0.2} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-gradient mb-4">
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of innovative solutions and creative implementations
           </p>
-        </div>
+        </ParallaxSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <ParallaxSection 
               key={project.id}
-              className={`group relative perspective-1000 cursor-pointer ${
-                hoveredProject === project.id ? 'z-10' : ''
-              }`}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-              onClick={() => setSelectedProject(project.id)}
+              speed={0.1 + (index * 0.05)}
+              direction={index % 2 === 0 ? 'up' : 'down'}
             >
-              <div
-                className={`relative holographic rounded-2xl overflow-hidden transition-all duration-500 transform-style-3d ${
-                  hoveredProject === project.id
-                    ? 'scale-105 rotate-x-2 rotate-y-2 glow-primary'
-                    : 'hover:scale-102'
+              <InteractiveCard3D
+                intensity={20}
+                perspective={1200}
+                glow={hoveredProject === project.id}
+                className={`group cursor-pointer ${
+                  hoveredProject === project.id ? 'z-10' : ''
                 }`}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+                onClick={() => setSelectedProject(project.id)}
               >
+                <div className="relative holographic rounded-2xl overflow-hidden transition-all duration-500">
                 {/* Project Image */}
                 <div className="relative h-64 bg-gradient-dark overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
@@ -142,12 +145,13 @@ export const PortfolioSection = () => {
                   </div>
                 </div>
 
-                {/* Hover Overlay */}
-                <div className={`absolute inset-0 bg-gradient-primary opacity-0 transition-opacity duration-300 ${
-                  hoveredProject === project.id ? 'opacity-10' : ''
-                }`} />
-              </div>
-            </div>
+                  {/* Hover Overlay */}
+                  <div className={`absolute inset-0 bg-gradient-primary opacity-0 transition-opacity duration-300 ${
+                    hoveredProject === project.id ? 'opacity-10' : ''
+                  }`} />
+                </div>
+              </InteractiveCard3D>
+            </ParallaxSection>
           ))}
         </div>
 

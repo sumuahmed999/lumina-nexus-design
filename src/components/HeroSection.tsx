@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { ParallaxSection } from "./ParallaxSection";
+import { FloatingGeometry } from "./FloatingGeometry";
 
 export const HeroSection = () => {
   const [textRevealed, setTextRevealed] = useState(false);
@@ -10,10 +12,18 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center particles overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center particles overflow-hidden perspective-2000">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card opacity-90" />
       
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      {/* Floating 3D Geometric Elements */}
+      <FloatingGeometry type="cube" size="sm" color="primary" position={{ x: 10, y: 20 }} delay={0} />
+      <FloatingGeometry type="sphere" size="md" color="secondary" position={{ x: 85, y: 15 }} delay={1} />
+      <FloatingGeometry type="pyramid" size="sm" color="accent" position={{ x: 15, y: 70 }} delay={2} />
+      <FloatingGeometry type="torus" size="lg" color="primary" position={{ x: 80, y: 75 }} delay={3} />
+      <FloatingGeometry type="cube" size="md" color="secondary" position={{ x: 5, y: 50 }} animation="drift" delay={1.5} />
+      <FloatingGeometry type="sphere" size="sm" color="accent" position={{ x: 90, y: 45 }} animation="orb" delay={2.5} />
+      
+      <ParallaxSection speed={0.3} className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <div className="space-y-6">
           {/* Animated Name */}
           <div className="relative">
@@ -58,12 +68,14 @@ export const HeroSection = () => {
             </button>
           </div>
         </div>
-      </div>
+      </ParallaxSection>
 
       {/* Floating Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
-        <ChevronDown className="w-6 h-6 text-primary animate-pulse" />
-      </div>
+      <ParallaxSection speed={0.8} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="float-3d">
+          <ChevronDown className="w-6 h-6 text-primary animate-pulse" />
+        </div>
+      </ParallaxSection>
 
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-10">

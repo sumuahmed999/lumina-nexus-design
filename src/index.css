@@ -188,12 +188,77 @@
     perspective: 1000px;
   }
   
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+  
   .transform-style-3d {
     transform-style: preserve-3d;
   }
   
   .backface-hidden {
     backface-visibility: hidden;
+  }
+
+  /* 3D Parallax Utilities */
+  .parallax-element {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .rotate-x-2 {
+    transform: rotateX(2deg);
+  }
+
+  .rotate-y-2 {
+    transform: rotateY(2deg);
+  }
+
+  .rotate-x-5 {
+    transform: rotateX(5deg);
+  }
+
+  .rotate-y-5 {
+    transform: rotateY(5deg);
+  }
+
+  .translate-z-10 {
+    transform: translateZ(10px);
+  }
+
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+
+  .translate-z-50 {
+    transform: translateZ(50px);
+  }
+
+  .scale-102 {
+    transform: scale(1.02);
+  }
+
+  .hover-lift {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
+  }
+
+  /* Floating 3D Elements */
+  .float-3d {
+    animation: float-3d 6s ease-in-out infinite;
+  }
+
+  .float-3d-delay {
+    animation: float-3d 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .float-3d-slow {
+    animation: float-3d 8s ease-in-out infinite;
+    animation-delay: 1s;
   }
 }
 
@@ -236,4 +301,64 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 3D Parallax Animations */
+@keyframes float-3d {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% { 
+    transform: translateY(-20px) rotateX(5deg) rotateY(-3deg);
+  }
+  50% { 
+    transform: translateY(-10px) rotateX(-2deg) rotateY(5deg);
+  }
+  75% { 
+    transform: translateY(-25px) rotateX(3deg) rotateY(-2deg);
+  }
+}
+
+@keyframes parallax-drift {
+  0%, 100% { 
+    transform: translateX(0px) translateY(0px) rotateZ(0deg);
+  }
+  33% { 
+    transform: translateX(20px) translateY(-10px) rotateZ(2deg);
+  }
+  66% { 
+    transform: translateX(-15px) translateY(-20px) rotateZ(-1deg);
+  }
+}
+
+@keyframes geometric-float {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% { 
+    transform: translate3d(10px, -15px, 20px) rotateX(5deg) rotateY(10deg) rotateZ(2deg);
+  }
+  50% { 
+    transform: translate3d(-5px, -25px, 10px) rotateX(-3deg) rotateY(-5deg) rotateZ(-1deg);
+  }
+  75% { 
+    transform: translate3d(-12px, -10px, 30px) rotateX(2deg) rotateY(-8deg) rotateZ(3deg);
+  }
+}
+
+@keyframes orb-float {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% { 
+    transform: translate3d(30px, -20px, 15px) scale(1.1);
+  }
+  66% { 
+    transform: translate3d(-20px, -35px, 25px) scale(0.9);
+  }
+}
+
+@keyframes card-tilt {
+  0% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+  100% { transform: perspective(1000px) rotateX(var(--mouse-x)) rotateY(var(--mouse-y)); }
 }
