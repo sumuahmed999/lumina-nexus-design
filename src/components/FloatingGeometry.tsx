@@ -20,9 +20,9 @@ export const FloatingGeometry = ({
   const geometryRef = useRef<HTMLDivElement>(null);
 
   const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-16 h-16',
-    lg: 'w-24 h-24'
+    sm: 'w-6 h-6 sm:w-8 sm:h-8',
+    md: 'w-12 h-12 sm:w-16 sm:h-16',
+    lg: 'w-18 h-18 sm:w-24 sm:h-24'
   };
 
   const colorClasses = {

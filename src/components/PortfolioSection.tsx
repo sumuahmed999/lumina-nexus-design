@@ -47,18 +47,18 @@ export const PortfolioSection = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <section className="py-20 px-6 perspective-2000">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 perspective-2000">
       <div className="max-w-7xl mx-auto">
-        <ParallaxSection speed={0.2} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-gradient mb-4">
+        <ParallaxSection speed={0.2} className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gradient mb-4 sm:mb-6">
             Featured Projects
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A showcase of innovative solutions and creative implementations
           </p>
         </ParallaxSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <ParallaxSection 
               key={project.id}
@@ -156,15 +156,15 @@ export const PortfolioSection = () => {
         </div>
 
         {/* View All Projects Button */}
-        <div className="text-center mt-12">
-          <button className="group relative px-8 py-4 bg-gradient-secondary rounded-lg font-medium text-secondary-foreground overflow-hidden transition-all duration-300 hover:scale-105 glow-secondary">
-            <span className="relative z-10 flex items-center space-x-2">
-              <span>View All Projects</span>
+        <ParallaxSection speed={0.1} className="text-center mt-12 sm:mt-16 lg:mt-20">
+          <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-secondary rounded-lg font-medium text-secondary-foreground overflow-hidden transition-all duration-300 hover:scale-105 glow-secondary">
+            <span className="relative z-10 flex items-center justify-center space-x-2">
+              <span className="text-sm sm:text-base">View All Projects</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
             <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
-        </div>
+        </ParallaxSection>
       </div>
     </section>
   );
