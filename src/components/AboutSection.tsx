@@ -31,16 +31,16 @@ export const AboutSection = () => {
               <div className="space-y-6">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary p-1">
                   <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-                    <span className="text-4xl font-bold text-gradient">AC</span>
+                    <span className="text-4xl font-bold text-gradient">SA</span>
                   </div>
                 </div>
 
                 <div className="text-center">
                   <h3 className="text-2xl font-heading font-semibold text-foreground mb-2">
-                    Alex Chen
+                    Sumu Ahmed
                   </h3>
                   <p className="text-primary font-medium mb-4">
-                    Senior Full-Stack Developer
+                    Web Developer & Designer
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
                     With over 6 years of experience in modern web development, I
