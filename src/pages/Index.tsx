@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
-import { PortfolioSection } from "@/components/PortfolioSection";
+import { FeaturedSection } from "@/components/FeaturedSection";
 import { TechStackSection } from "@/components/TechStackSection";
 import { ContactSection } from "@/components/ContactSection";
 
@@ -29,7 +29,7 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              {['About', 'Portfolio', 'Skills', 'Contact'].map((item) => (
+              {['About', 'Featured', 'Skills', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -65,8 +65,8 @@ const Index = () => {
           <AboutSection />
         </div>
         
-        <div id="portfolio" className="scroll-mt-20">
-          <PortfolioSection />
+        <div id="featured" className="scroll-mt-20">
+          <FeaturedSection />
         </div>
         
         <div id="skills" className="scroll-mt-20">
