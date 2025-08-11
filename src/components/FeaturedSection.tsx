@@ -115,7 +115,7 @@ export const FeaturedSection = () => {
         </ParallaxSection>
 
         {/* Projects Grid */}
-        <ParallaxSection speed={0.1} className="pt-40 sm:mb-16 lg:mb-20">
+        <ParallaxSection speed={0.1} className="pt-60 sm:mb-16 lg:mb-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 auto-rows-max">
             {featuredProjects.map((project, index) => (
               <FeatureCard
@@ -135,7 +135,7 @@ export const FeaturedSection = () => {
         </ParallaxSection>
 
         {/* Action Section */}
-        <ParallaxSection speed={0.1} className="text-center space-y-6">
+        <ParallaxSection speed={0.1} className="pb-40 text-center space-y-6">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-primary rounded-lg font-medium text-primary-foreground overflow-hidden transition-all duration-300 hover:scale-105 glow-primary">
               <span className="relative z-10 flex items-center justify-center space-x-2">

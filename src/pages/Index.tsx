@@ -92,7 +92,7 @@ const Index = () => {
       <footer className="relative py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t border-border/50 bg-card/50">
         <div className="container max-w-7xl mx-auto text-center">
           <p className="text-muted-foreground text-sm sm:text-base">
-            © 2024 Alex Chen. Crafted with passion and cutting-edge technology.
+            Designed by Sumu Ahmed | Made with ❤️
           </p>
         </div>
       </footer>

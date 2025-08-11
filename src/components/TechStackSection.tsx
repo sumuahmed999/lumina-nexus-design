@@ -2,22 +2,49 @@ import { useState, useEffect } from "react";
 
 const technologies = [
   { name: "React", category: "Frontend", level: "Expert", color: "primary" },
-  { name: "TypeScript", category: "Language", level: "Expert", color: "secondary" },
+  {
+    name: "TypeScript",
+    category: "Language",
+    level: "Expert",
+    color: "secondary",
+  },
   { name: "Node.js", category: "Backend", level: "Advanced", color: "accent" },
   { name: "Python", category: "Language", level: "Advanced", color: "primary" },
-  { name: "Next.js", category: "Framework", level: "Expert", color: "secondary" },
+  {
+    name: "Next.js",
+    category: "Framework",
+    level: "Expert",
+    color: "secondary",
+  },
   { name: "MongoDB", category: "Database", level: "Advanced", color: "accent" },
-  { name: "PostgreSQL", category: "Database", level: "Advanced", color: "primary" },
-  { name: "Docker", category: "DevOps", level: "Intermediate", color: "secondary" },
+  {
+    name: "PostgreSQL",
+    category: "Database",
+    level: "Advanced",
+    color: "primary",
+  },
+  {
+    name: "Docker",
+    category: "DevOps",
+    level: "Intermediate",
+    color: "secondary",
+  },
   { name: "AWS", category: "Cloud", level: "Advanced", color: "accent" },
   { name: "GraphQL", category: "API", level: "Advanced", color: "primary" },
-  { name: "Three.js", category: "3D/WebGL", level: "Intermediate", color: "secondary" },
+  {
+    name: "Three.js",
+    category: "3D/WebGL",
+    level: "Intermediate",
+    color: "secondary",
+  },
   { name: "Tailwind", category: "Styling", level: "Expert", color: "accent" },
 ];
 
 export const TechStackSection = () => {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
-  const [floatingPositions, setFloatingPositions] = useState<Array<{x: number, y: number, rotation: number}>>([]);
+  const [floatingPositions, setFloatingPositions] = useState<
+    Array<{ x: number; y: number; rotation: number }>
+  >([]);
 
   useEffect(() => {
     // Generate random floating positions for holographic icons
@@ -31,32 +58,32 @@ export const TechStackSection = () => {
 
   const getColorClasses = (color: string) => {
     switch (color) {
-      case 'primary':
-        return 'text-primary border-primary/30 hover:border-primary hover:glow-primary bg-primary/5';
-      case 'secondary':
-        return 'text-secondary border-secondary/30 hover:border-secondary hover:glow-secondary bg-secondary/5';
-      case 'accent':
-        return 'text-accent border-accent/30 hover:border-accent hover:glow-accent bg-accent/5';
+      case "primary":
+        return "text-primary border-primary/30 hover:border-primary hover:glow-primary bg-primary/5";
+      case "secondary":
+        return "text-secondary border-secondary/30 hover:border-secondary hover:glow-secondary bg-secondary/5";
+      case "accent":
+        return "text-accent border-accent/30 hover:border-accent hover:glow-accent bg-accent/5";
       default:
-        return 'text-primary border-primary/30 hover:border-primary hover:glow-primary bg-primary/5';
+        return "text-primary border-primary/30 hover:border-primary hover:glow-primary bg-primary/5";
     }
   };
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Expert':
-        return 'text-success bg-success/20';
-      case 'Advanced':
-        return 'text-primary bg-primary/20';
-      case 'Intermediate':
-        return 'text-warning bg-warning/20';
+      case "Expert":
+        return "text-success bg-success/20";
+      case "Advanced":
+        return "text-primary bg-primary/20";
+      case "Intermediate":
+        return "text-warning bg-warning/20";
       default:
-        return 'text-muted-foreground bg-muted/20';
+        return "text-muted-foreground bg-muted/20";
     }
   };
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="pt-60 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-gradient mb-4">
@@ -72,12 +99,17 @@ export const TechStackSection = () => {
           {technologies.map((tech, index) => (
             <div
               key={tech.name}
-              className={`group relative holographic rounded-xl p-6 text-center transition-all duration-500 hover:scale-110 cursor-pointer ${getColorClasses(tech.color)}`}
+              className={`group relative holographic rounded-xl p-6 text-center transition-all duration-500 hover:scale-110 cursor-pointer ${getColorClasses(
+                tech.color
+              )}`}
               onMouseEnter={() => setHoveredTech(tech.name)}
               onMouseLeave={() => setHoveredTech(null)}
               style={{
                 animationDelay: `${index * 100}ms`,
-                transform: hoveredTech === tech.name ? 'translateY(-10px)' : 'translateY(0)',
+                transform:
+                  hoveredTech === tech.name
+                    ? "translateY(-10px)"
+                    : "translateY(0)",
               }}
             >
               {/* Tech Icon/Name */}
@@ -87,7 +119,7 @@ export const TechStackSection = () => {
                     {tech.name.substring(0, 2).toUpperCase()}
                   </span>
                 </div>
-                
+
                 {/* Floating particles around icon */}
                 {hoveredTech === tech.name && (
                   <div className="absolute inset-0 pointer-events-none">
@@ -109,12 +141,16 @@ export const TechStackSection = () => {
               <h3 className="font-heading font-semibold text-sm mb-2">
                 {tech.name}
               </h3>
-              
+
               <p className="text-xs text-muted-foreground mb-2">
                 {tech.category}
               </p>
-              
-              <span className={`text-xs px-2 py-1 rounded-full font-medium ${getLevelColor(tech.level)}`}>
+
+              <span
+                className={`text-xs px-2 py-1 rounded-full font-medium ${getLevelColor(
+                  tech.level
+                )}`}
+              >
                 {tech.level}
               </span>
 
@@ -126,13 +162,22 @@ export const TechStackSection = () => {
 
         {/* Categories Legend */}
         <div className="flex flex-wrap justify-center gap-4">
-          {['Frontend', 'Backend', 'Database', 'DevOps', 'Cloud', 'Language'].map((category) => (
+          {[
+            "Frontend",
+            "Backend",
+            "Database",
+            "DevOps",
+            "Cloud",
+            "Language",
+          ].map((category) => (
             <div
               key={category}
               className="flex items-center space-x-2 px-4 py-2 rounded-full bg-card-accent/50 border border-primary/20 backdrop-blur-sm"
             >
               <div className="w-3 h-3 rounded-full bg-gradient-primary" />
-              <span className="text-sm font-medium text-muted-foreground">{category}</span>
+              <span className="text-sm font-medium text-muted-foreground">
+                {category}
+              </span>
             </div>
           ))}
         </div>
@@ -165,8 +210,8 @@ export const TechStackSection = () => {
               radial-gradient(circle at 25% 25%, hsl(var(--primary)) 2px, transparent 2px),
               radial-gradient(circle at 75% 75%, hsl(var(--secondary)) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px, 40px 40px',
-            animation: 'particle-float 30s linear infinite',
+            backgroundSize: "60px 60px, 40px 40px",
+            animation: "particle-float 30s linear infinite",
           }}
         />
       </div>

@@ -1,25 +1,33 @@
 import { useState } from "react";
-import { Send, Mail, MapPin, Phone, Github, Linkedin, Twitter } from "lucide-react";
+import {
+  Send,
+  Mail,
+  MapPin,
+  Phone,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 const contactMethods = [
   {
     icon: Mail,
     label: "Email",
-    value: "alex.chen@example.com",
-    href: "mailto:alex.chen@example.com"
+    value: "sumuahmed999@gmail.com",
+    href: "mailto:sumuahmed999@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567"
+    value: "+91 8753911945",
+    href: "tel:+91 8753911945",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
-    href: "#"
-  }
+    value: "Sixmile, Guwahati",
+    href: "#",
+  },
 ];
 
 const socialLinks = [
@@ -32,38 +40,42 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setFormData({ name: "", email: "", message: "" });
-    
+
     // Show success feedback (you could integrate with a toast system)
     console.log("Form submitted:", formData);
   };
 
   const getInputClasses = (fieldName: string) => {
-    const isActive = focusedField === fieldName || formData[fieldName as keyof typeof formData];
+    const isActive =
+      focusedField === fieldName ||
+      formData[fieldName as keyof typeof formData];
     return `w-full px-4 py-3 bg-card-accent border rounded-lg transition-all duration-300 text-foreground placeholder-muted-foreground font-medium ${
       isActive
-        ? 'border-primary glow-primary'
-        : 'border-border hover:border-primary/50'
+        ? "border-primary glow-primary"
+        : "border-border hover:border-primary/50"
     }`;
   };
 
@@ -75,7 +87,8 @@ export const ContactSection = () => {
             Let's Connect
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can bring your ideas to life.
+            Ready to collaborate on your next project? Let's discuss how we can
+            bring your ideas to life.
           </p>
         </div>
 
@@ -87,9 +100,10 @@ export const ContactSection = () => {
                 Get in Touch
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                I'm always excited to work on innovative projects and collaborate with talented teams. 
-                Whether you need a full-stack developer, technical consultant, or creative partner, 
-                I'd love to hear about your vision.
+                I'm always excited to work on innovative projects and
+                collaborate with talented teams. Whether you need a full-stack
+                developer, technical consultant, or creative partner, I'd love
+                to hear about your vision.
               </p>
             </div>
 
@@ -144,7 +158,10 @@ export const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="relative">
-            <form onSubmit={handleSubmit} className="holographic rounded-2xl p-8 space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="holographic rounded-2xl p-8 space-y-6"
+            >
               <h3 className="text-2xl font-heading font-semibold mb-6 text-foreground">
                 Send a Message
               </h3>
@@ -157,9 +174,9 @@ export const ContactSection = () => {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  onFocus={() => setFocusedField('name')}
+                  onFocus={() => setFocusedField("name")}
                   onBlur={() => setFocusedField(null)}
-                  className={getInputClasses('name')}
+                  className={getInputClasses("name")}
                   required
                 />
               </div>
@@ -172,9 +189,9 @@ export const ContactSection = () => {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  onFocus={() => setFocusedField('email')}
+                  onFocus={() => setFocusedField("email")}
                   onBlur={() => setFocusedField(null)}
-                  className={getInputClasses('email')}
+                  className={getInputClasses("email")}
                   required
                 />
               </div>
@@ -186,10 +203,10 @@ export const ContactSection = () => {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  onFocus={() => setFocusedField('message')}
+                  onFocus={() => setFocusedField("message")}
                   onBlur={() => setFocusedField(null)}
                   rows={6}
-                  className={getInputClasses('message')}
+                  className={getInputClasses("message")}
                   required
                 />
               </div>
@@ -226,7 +243,10 @@ export const ContactSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        />
       </div>
     </section>
   );
