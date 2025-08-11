@@ -362,3 +362,20 @@
   0% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
   100% { transform: perspective(1000px) rotateX(var(--mouse-x)) rotateY(var(--mouse-y)); }
 }
+
+/* Blob Animations */
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(0.9) rotate(240deg);
+  }
+}
+
+.blob-animation {
+  animation: blob-float 8s ease-in-out infinite;
+}
