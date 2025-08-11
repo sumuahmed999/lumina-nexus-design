@@ -8,13 +8,13 @@ import { ContactSection } from "@/components/ContactSection";
 const Index = () => {
   useEffect(() => {
     // Add smooth scrolling behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
+    document.documentElement.style.scrollBehavior = "smooth";
+
     // Set dark theme by default
-    document.documentElement.classList.add('dark');
-    
+    document.documentElement.classList.add("dark");
+
     return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
+      document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
 
@@ -27,9 +27,9 @@ const Index = () => {
             <div className="font-heading font-bold text-lg sm:text-xl text-gradient">
               AC
             </div>
-            
+
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              {['About', 'Featured', 'Skills', 'Contact'].map((item) => (
+              {["About", "Featured", "Skills", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -40,16 +40,26 @@ const Index = () => {
                 </a>
               ))}
             </div>
-            
+
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button className="p-2 text-muted-foreground hover:text-primary transition-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </button>
             </div>
-            
+
             <button className="hidden md:block px-3 sm:px-4 py-2 bg-gradient-primary rounded-lg text-primary-foreground font-medium hover:glow-primary transition-all duration-300 hover:scale-105 text-xs sm:text-sm">
               Hire Me
             </button>
@@ -60,19 +70,19 @@ const Index = () => {
       {/* Main Content */}
       <main className="relative">
         <HeroSection />
-        
+
         <div id="about" className="scroll-mt-20">
           <AboutSection />
         </div>
-        
+
         <div id="featured" className="scroll-mt-20">
           <FeaturedSection />
         </div>
-        
+
         <div id="skills" className="scroll-mt-20">
           <TechStackSection />
         </div>
-        
+
         <div id="contact" className="scroll-mt-20">
           <ContactSection />
         </div>
