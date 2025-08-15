@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { ParallaxSection } from "./ParallaxSection";
-import { FeatureCard } from "./FeatureCard";
+import { OptimizedFeatureCard } from "./OptimizedFeatureCard";
 
 const featuredProjects = [
   {
@@ -91,10 +90,7 @@ export const FeaturedSection = () => {
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 perspective-2000 bg-background/50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <ParallaxSection
-          speed={0.2}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
-        >
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Sparkles className="w-6 h-6 text-accent animate-pulse" />
             <span className="text-sm font-mono text-accent uppercase tracking-wider">
@@ -112,13 +108,13 @@ export const FeaturedSection = () => {
             implementations that showcase the intersection of design and
             technology
           </p>
-        </ParallaxSection>
+        </div>
 
         {/* Projects Grid */}
-        <ParallaxSection speed={0.1} className="pt-60 sm:mb-16 lg:mb-20">
+        <div className="mb-16 lg:mb-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 auto-rows-max">
             {featuredProjects.map((project, index) => (
-              <FeatureCard
+              <OptimizedFeatureCard
                 key={project.id}
                 title={project.title}
                 description={project.description}
@@ -132,10 +128,10 @@ export const FeaturedSection = () => {
               />
             ))}
           </div>
-        </ParallaxSection>
+        </div>
 
         {/* Action Section */}
-        <ParallaxSection speed={0.1} className="pb-40 text-center space-y-6">
+        <div className="text-center space-y-6">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-primary rounded-lg font-medium text-primary-foreground overflow-hidden transition-all duration-300 hover:scale-105 glow-primary">
               <span className="relative z-10 flex items-center justify-center space-x-2">
@@ -154,7 +150,7 @@ export const FeaturedSection = () => {
             Interested in collaborating? Let's create something amazing
             together.
           </p>
-        </ParallaxSection>
+        </div>
       </div>
     </section>
   );

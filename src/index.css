@@ -159,27 +159,14 @@
     -webkit-backdrop-filter: blur(12px);
   }
 
-  /* Particle Animation Container */
-  .particles {
-    position: relative;
-    overflow: hidden;
+  /* Optimized Performance Classes */
+  .gpu-accelerated {
+    will-change: transform;
+    transform: translateZ(0);
   }
 
-  .particles::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, hsl(var(--primary)), transparent),
-      radial-gradient(2px 2px at 40px 70px, hsl(var(--secondary)), transparent),
-      radial-gradient(1px 1px at 90px 40px, hsl(var(--accent)), transparent),
-      radial-gradient(1px 1px at 130px 80px, hsl(var(--primary)), transparent);
-    background-repeat: repeat;
-    background-size: 150px 100px;
-    animation: particle-float 20s linear infinite;
+  .smooth-transition {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
