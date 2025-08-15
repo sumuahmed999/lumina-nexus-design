@@ -1,5 +1,4 @@
 import { ExternalLink, Sparkles, Clock, CheckCircle, AlertCircle } from "lucide-react";
-import { memo } from "react";
 
 interface FeatureCardProps {
   title: string;
@@ -13,7 +12,7 @@ interface FeatureCardProps {
   onLearnMore: () => void;
 }
 
-export const OptimizedFeatureCard = memo(({
+export const OptimizedFeatureCard = ({
   title,
   description,
   technologies,
@@ -66,7 +65,7 @@ export const OptimizedFeatureCard = memo(({
         bg-gradient-to-br ${gradient} 
         backdrop-blur-sm hover:border-primary/30 
         transition-all duration-300 group cursor-pointer
-        will-change-transform hover:scale-[1.02] smooth-transition
+        will-change-transform hover:scale-[1.02]
         ${getSizeClasses()}
       `}
       onClick={onLearnMore}
@@ -155,6 +154,4 @@ export const OptimizedFeatureCard = memo(({
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </div>
   );
-});
-
-OptimizedFeatureCard.displayName = "OptimizedFeatureCard";
+};

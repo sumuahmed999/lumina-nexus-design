@@ -1,8 +1,8 @@
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { AnimatedBlob } from "./AnimatedBlob";
 
-const HeroSection = memo(() => {
+export const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const HeroSection = memo(() => {
           <div className="flex justify-center lg:justify-end order-1 lg:order-1">
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
               {/* Profile Picture Container */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-3 border-primary/20 shadow-xl bg-card/80 transition-transform duration-500 hover:scale-105">
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/20 shadow-xl bg-card/80 transition-transform duration-500 hover:scale-105">
                 <img
                   src="/sumu.jpg"
                   alt="Sumu Ahmed - Developer Profile"
@@ -167,8 +167,4 @@ const HeroSection = memo(() => {
       </div>
     </section>
   );
-});
-
-HeroSection.displayName = "HeroSection";
-
-export { HeroSection };
+};
